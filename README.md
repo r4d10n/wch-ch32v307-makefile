@@ -25,6 +25,8 @@ The project uses:
 
     `add-auto-load-safe-path <path>/wch-ch32v307-makefile/.gdbinit`
     
+* Connect USB-C Cable to P9. Insert Jumper wire between PA0 and LED1 headers.
+    
 ### Build and Debug
 
 * Simply run `make` to build the project.
