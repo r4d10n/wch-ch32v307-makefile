@@ -32,7 +32,9 @@ The project uses:
 * Run `make gdb-client` to download the code and start debugging.
 * Optionally, open a serial terminal to view the `printf` function calls.
   * For example, run `pyserial`: `python -m serial - 115200` and then select the port labeled "WCH-Link".
-  
-  
+
+<img src="https://user-images.githubusercontent.com/192318/151754584-6fd61b7c-d893-481f-911f-1fce58c17661.png" width=600 height=300>
+<img src="https://user-images.githubusercontent.com/192318/151754587-f8825640-0322-4ca8-8d48-71745b1fd9a1.png" width=600 height=500>
+
      
 
