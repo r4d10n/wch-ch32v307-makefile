@@ -90,7 +90,7 @@ CXX_OBJS = $(SRC_FILES:.c=.o)
 ASM_OBJS = $(ASM_FILES:.S=.o)
 ALL_OBJS = $(ASM_OBJS) $(CXX_OBJS)
 
-.PHONY: clean gdb-server_openocd gdb-client
+.PHONY: clean prog gdb-server_openocd gdb-client
 
 all: $(TARGET)
 
@@ -113,6 +113,12 @@ $(CXX_OBJS): %.o: %.c
 clean:
 	@rm -f $(ALL_OBJS) $(ALL_OBJS:o=d) $(TARGET) $(PROJECT).map
 
+# Program
+prog: $(TARGET)
+	$(OPENOCD_ROOT)openocd -f $(OPENOCD_ROOT)wch-riscv.cfg -c init -c halt -c "flash erase_sector wch_riscv 0 last " -c exit
+	$(OPENOCD_ROOT)openocd -f $(OPENOCD_ROOT)wch-riscv.cfg -c init -c halt -c "program $(TARGET) 0x08000000" -c exit
+	$(OPENOCD_ROOT)openocd -f $(OPENOCD_ROOT)wch-riscv.cfg -c init -c halt -c "verify_image $(TARGET)" -c exit
+	echo "Programming done.. Press RESET button to start execution."
 # Debug
 gdb-server_openocd:
 	$(OPENOCD_ROOT)openocd -f $(OPENOCD_ROOT)wch-riscv.cfg
