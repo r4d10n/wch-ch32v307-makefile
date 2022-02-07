@@ -30,6 +30,10 @@ The project uses:
 ### Build and Debug
 
 * Simply run `make` to build the project.
+* Run `make prog` to build the project and program the firmware using openocd
+
+For Debugging:
+
 * In another terminal, start the GDB server by running `make gdb-server_openocd`.  GDB Server probably has to be restarted after every code download step, otherwise seems to hang. 
 * Run `make gdb-client` to download the code and start debugging.
 * Optionally, open a serial terminal to view the `printf` function calls.
